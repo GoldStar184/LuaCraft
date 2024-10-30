@@ -45,7 +45,7 @@ public class LuaCraft extends JavaPlugin {
 	
 		File luaDir = new File(getServer().getWorldContainer(), "lua");
 		if (!luaDir.exists()) {
-			luaDir.mkdirs();
+			copyResourceDirectoryToServer("lua", luaDir);
 		}
 	
 		try {
@@ -183,7 +183,6 @@ public class LuaCraft extends JavaPlugin {
 	}	
 
 	private void registerAutorunScripts(File luaDir) {
-		copyResourceDirectoryToServer("lua", luaDir);
 		File autorunDir = new File(luaDir, "autorun");
 		if (autorunDir.exists()) {
 			for (File file : autorunDir.listFiles((dir, name) -> name.endsWith(".lua"))) {
