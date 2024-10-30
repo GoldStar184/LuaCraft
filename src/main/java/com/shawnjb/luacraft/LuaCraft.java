@@ -44,9 +44,8 @@ public class LuaCraft extends JavaPlugin {
 		globals.undumper = new Undumper(globals);
 	
 		File luaDir = new File(getServer().getWorldContainer(), "lua");
-		if (!luaDir.exists()) {
-			copyResourceDirectoryToServer("lua", luaDir);
-		}
+		
+		copyResourceDirectoryToServer("lua", luaDir);
 	
 		try {
 			String luaPath = luaDir.getCanonicalPath().replace("\\", "/") + "/?.lua";
